@@ -166,12 +166,14 @@ void X11_wrapper::check_resize(XEvent *e)
 	//The ConfigureNotify is sent by the
 	//server if the window is resized.
 	if (e->type != ConfigureNotify)
-		return;
+        return;
 	XConfigureEvent xce = e->xconfigure;
 	if (xce.width != g.xres || xce.height != g.yres) {
 		//Window size did change.
 		reshape_window(xce.width, xce.height);
-	}
+        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    }
+
 }
 //-----------------------------------------------------------------------------
 
